@@ -5,39 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskVault</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <div id="login-container" class="container">
         <div class="login-form">
-            <h1>TaskVault</h1>
+            <div class="logo">
+                <h1>TaskVault</h1>
+                <p>Your secure task manager</p>
+            </div>
             <form id="login-form">
-                <input type="text" id="username" placeholder="Username" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button type="submit">Login</button>
+                <div class="input-group">
+                    <input type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="input-group">
+                    <input type="password" id="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
             </form>
             <div id="login-error" class="error"></div>
         </div>
     </div>
 
-    <div id="app-container" class="container" style="display: none;">
-        <header>
-            <h1>TaskVault</h1>
-            <div class="header-actions">
-                <button id="save-btn" class="btn btn-primary">Save</button>
-                <button id="logout-btn" class="btn btn-secondary">Logout</button>
+    <div id="app-container" class="app-layout" style="display: none;">
+        <header class="top-bar">
+            <div class="top-bar-left">
+                <div class="logo">
+                    <h1>TaskVault</h1>
+                </div>
+            </div>
+            <div class="top-bar-right">
+                <div class="action-buttons">
+                    <button id="filter-btn" class="btn btn-outline">Show Unchecked</button>
+                    <button id="add-header-btn" class="btn btn-outline" title="Ctrl+Shift+H">Add Header</button>
+                    <button id="add-item-btn" class="btn btn-outline">Add Item</button>
+                    <span id="save-status" class="save-status">Saved</span>
+                    <button id="logout-btn" class="btn btn-ghost">Logout</button>
+                </div>
+                <button id="outline-toggle" class="btn btn-ghost outline-toggle">☰</button>
             </div>
         </header>
 
-        <div class="actions">
-            <button id="add-header-btn" class="btn">Add Header</button>
-            <button id="add-item-btn" class="btn">Add Item</button>
-        </div>
-
-        <div id="tasks-container" class="tasks-list"></div>
+        <main class="main-content">
+            <div class="content-area">
+                <div id="tasks-container" class="tasks-list"></div>
+            </div>
+            
+            <aside id="outline-sidebar" class="outline-sidebar">
+                <div class="outline-header">
+                    <h3>Outline</h3>
+                    <button id="outline-close" class="btn btn-ghost">×</button>
+                </div>
+                <div id="outline-content" class="outline-content"></div>
+            </aside>
+        </main>
         
-        <div id="message" class="message"></div>
+        <div id="toast-container" class="toast-container"></div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>
