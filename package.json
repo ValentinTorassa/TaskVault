@@ -1,0 +1,18 @@
+{
+  "name": "taskvault",
+  "version": "1.0.0",
+  "description": "Simple self-hosted web checklist app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "dotenv": "^16.3.1"
+  },
+  "engines": {
+    "node": ">=16"
+  }
+}
