@@ -39,6 +39,17 @@ body {
     overflow-x: hidden;
 }
 
+/* Improve default tap targets on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .btn,
+    input,
+    .drag-handle,
+    .delete-btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -150,6 +161,30 @@ body {
 
 .outline-toggle {
     display: none;
+}
+
+/* Mobile bottom action bar */
+.mobile-actions {
+    position: fixed;
+    bottom: max(12px, env(safe-area-inset-bottom));
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    max-width: 900px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 8px 12px;
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(12px) saturate(160%);
+    border: 1px solid var(--border-primary);
+    border-radius: 14px;
+    box-shadow: var(--shadow-lg);
+    z-index: 250;
+}
+
+.mobile-actions .btn {
+    flex: 1;
 }
 
 /* Main Content */
@@ -546,9 +581,15 @@ body {
         display: block;
     }
 
+    /* Show mobile action bar on small screens */
+    #mobile-actions {
+        display: flex !important;
+    }
+
     .content-area {
         max-width: 100%;
         padding: 16px;
+        padding-bottom: 96px; /* space for mobile action bar */
     }
 
     .outline-sidebar {

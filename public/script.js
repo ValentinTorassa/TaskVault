@@ -635,6 +635,22 @@ function setupEventListeners() {
             outlineSidebar.classList.remove('open');
         }
     });
+
+    // Mobile action bar
+    const mobileActions = document.getElementById('mobile-actions');
+    if (mobileActions) {
+        const btnAddItem = document.getElementById('mobile-add-item');
+        const btnAddHeader = document.getElementById('mobile-add-header');
+        const btnFilter = document.getElementById('mobile-filter');
+        const btnOutline = document.getElementById('mobile-outline');
+        const btnLogout = document.getElementById('mobile-logout');
+
+        btnAddItem.addEventListener('click', addItem);
+        btnAddHeader.addEventListener('click', addHeader);
+        btnFilter.addEventListener('click', toggleFilter);
+        btnOutline.addEventListener('click', () => outlineSidebar.classList.add('open'));
+        btnLogout.addEventListener('click', handleLogout);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -18,19 +18,19 @@
             </div>
             <form id="login-form">
                 <div class="input-group">
-                    <input type="text" id="username" placeholder="Username" required>
+                    <input type="text" id="username" placeholder="Username" required aria-label="Username">
                 </div>
                 <div class="input-group">
-                    <input type="password" id="password" placeholder="Password" required>
+                    <input type="password" id="password" placeholder="Password" required aria-label="Password">
                 </div>
-                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="submit" class="btn btn-primary" aria-label="Sign in">Sign In</button>
             </form>
             <div id="login-error" class="error"></div>
         </div>
     </div>
 
     <div id="app-container" class="app-layout" style="display: none;">
-        <header class="top-bar">
+        <header class="top-bar" role="banner">
             <div class="top-bar-left">
                 <div class="logo">
                     <h1>TaskVault</h1>
@@ -38,30 +38,39 @@
             </div>
             <div class="top-bar-right">
                 <div class="action-buttons">
-                    <button id="filter-btn" class="btn btn-outline">Show Unchecked</button>
-                    <button id="add-header-btn" class="btn btn-outline" title="Ctrl+Shift+H">Add Header</button>
-                    <button id="add-item-btn" class="btn btn-outline">Add Item</button>
+                    <button id="filter-btn" class="btn btn-outline" aria-label="Toggle filter to show unchecked tasks">Show Unchecked</button>
+                    <button id="add-header-btn" class="btn btn-outline" title="Ctrl+Shift+H" aria-label="Add header">Add Header</button>
+                    <button id="add-item-btn" class="btn btn-outline" aria-label="Add item">Add Item</button>
                     <span id="save-status" class="save-status">Saved</span>
-                    <button id="logout-btn" class="btn btn-ghost">Logout</button>
+                    <button id="logout-btn" class="btn btn-ghost" aria-label="Logout">Logout</button>
                 </div>
-                <button id="outline-toggle" class="btn btn-ghost outline-toggle">☰</button>
+                <button id="outline-toggle" class="btn btn-ghost outline-toggle" aria-label="Toggle outline sidebar" title="Toggle outline">☰</button>
             </div>
         </header>
 
-        <main class="main-content">
+        <main class="main-content" role="main">
             <div class="content-area">
                 <div id="tasks-container" class="tasks-list"></div>
             </div>
             
-            <aside id="outline-sidebar" class="outline-sidebar">
+            <aside id="outline-sidebar" class="outline-sidebar" role="complementary" aria-label="Outline navigation">
                 <div class="outline-header">
                     <h3>Outline</h3>
-                    <button id="outline-close" class="btn btn-ghost">×</button>
+                    <button id="outline-close" class="btn btn-ghost" aria-label="Close outline">×</button>
                 </div>
                 <div id="outline-content" class="outline-content"></div>
             </aside>
         </main>
-        
+
+        <!-- Mobile action bar -->
+        <nav id="mobile-actions" class="mobile-actions" aria-label="Mobile actions" style="display: none;">
+            <button id="mobile-add-item" class="btn btn-primary" aria-label="Add item">＋</button>
+            <button id="mobile-add-header" class="btn btn-outline" aria-label="Add header">H</button>
+            <button id="mobile-filter" class="btn btn-outline" aria-label="Toggle filter">⎘</button>
+            <button id="mobile-outline" class="btn btn-ghost" aria-label="Open outline">☰</button>
+            <button id="mobile-logout" class="btn btn-ghost" aria-label="Logout">⎋</button>
+        </nav>
+
         <div id="toast-container" class="toast-container"></div>
     </div>
 
